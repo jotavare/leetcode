@@ -1,15 +1,20 @@
-class Solution {
+class Solution
+{
 public:
-    void moveZeroes(vector<int>& nums) {
+    void moveZeroes(vector<int> &nums)
+    {
         int arraySize = nums.size();
         int zeros = 0;
 
-        for (int i = 0; i < arraySize;) {
-            if (nums[i] == 0) {
+        for (int i = 0; i < arraySize;)
+        {
+            if (nums[i] == 0)
+            {
                 nums.erase(nums.begin() + i);
                 zeros++;
                 arraySize--;
-            } else
+            }
+            else
                 i++;
         }
 
