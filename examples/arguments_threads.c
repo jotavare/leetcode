@@ -5,19 +5,19 @@
 
 int primes[10] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
 
-void *rotine(void* arg)
+void *rotine(void *arg)
 {
-    int index = *(int*)arg;
+    int index = *(int *)arg;
     int sum = 0;
 
-    for(int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++)
     {
         sum += primes[index + i];
     }
 
     printf("Local sum: %d\n", sum);
 
-    *(int*)arg = sum;
+    *(int *)arg = sum;
     return arg;
 }
 
@@ -27,7 +27,7 @@ int main(int ac, char **av)
 
     for (int i = 0; i < 2; i++)
     {
-        int* a = malloc(sizeof(int));
+        int *a = malloc(sizeof(int));
         *a = i * 5;
         if (pthread_create(&th[i], NULL, &rotine, a) != 0)
             perror("Failed to create thread.\n");
@@ -37,8 +37,8 @@ int main(int ac, char **av)
 
     for (int i = 0; i < 2; i++)
     {
-        int* value;
-        if (pthread_join(th[i], (void**)&value) != 0)
+        int *value;
+        if (pthread_join(th[i], (void **)&value) != 0)
             perror("Failed to join thread.\n");
         total_sum += *value;
         free(value);

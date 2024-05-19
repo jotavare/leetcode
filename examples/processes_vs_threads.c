@@ -29,7 +29,6 @@
 
 int x = 2;
 
-
 void *rotine()
 {
     x++;
@@ -37,12 +36,11 @@ void *rotine()
     printf("Value of x: %d\n", x);
 }
 
-void* rotine2()
+void *rotine2()
 {
     sleep(2);
     printf("Value of x: %d\n", x);
 }
-
 
 int main(int ac, char **av)
 {
