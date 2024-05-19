@@ -1,1 +1,10 @@
-.vscode/
+*
+
+!*/
+
+!.gitignore
+!*.c
+!*.cpp
+!*.sh
+!LICENSE
+
