@@ -1,6 +1,7 @@
 *
 
 !examples/
+!leetcode/
 
 !.gitignore
 !*.c
