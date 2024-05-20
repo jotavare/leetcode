@@ -6,7 +6,7 @@
 int mails = 0;
 pthread_mutex_t mutex;
 
-void *rotine()
+void *routine()
 {
     for (int i = 0; i < 10000000; i++)
     {
@@ -24,7 +24,7 @@ int main(int ac, char **av)
 
     for (int i = 0; i < nThreads; i++)
     {
-        if (pthread_create(&th[i], NULL, &rotine, NULL) != 0)
+        if (pthread_create(&th[i], NULL, &routine, NULL) != 0)
         {
             perror("Failed to create thread.");
             return 1;
