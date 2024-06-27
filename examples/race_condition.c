@@ -5,8 +5,9 @@
 
 int mails = 0;
 
-void *routine()
+void *routine(void *arg)
 {
+    (void)arg;
     for (int i = 0; i < 100000; i++)
         mails++;
 }

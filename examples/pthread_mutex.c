@@ -6,8 +6,9 @@
 int mails = 0;
 pthread_mutex_t mutex;
 
-void *routine()
+void *routine(void *arg)
 {
+    (void)arg;
     for (int i = 0; i < 10000000; i++)
     {
         pthread_mutex_lock(&mutex);

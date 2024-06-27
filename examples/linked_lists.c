@@ -36,7 +36,7 @@ node_t *insertNodeHead(node_t **head, node_t *node_to_insert)
     return node_to_insert;
 }
 
-void *insertAfterNode(node_t *node_to_insert, node_t *newnode)
+void insertAfterNode(node_t *node_to_insert, node_t *newnode)
 {
     newnode->next = node_to_insert->next;
     node_to_insert->next = newnode;
@@ -53,6 +53,18 @@ node_t *findNode(node_t *head, int value)
     return NULL;
 }
 
+void freeList(node_t *head)
+{
+    node_t *next;
+
+    while (head != NULL)
+    {
+        next = head->next;
+        free(head);
+        head = next;
+    }
+}
+
 int main(){
     node_t *head = NULL;
     node_t *tmp;
@@ -63,12 +75,16 @@ int main(){
         insertNodeHead(&head, tmp);
     }
 
-    if (tmp = findNode(head, 25)) printf("Found node: %d\n", tmp->value);
-    else printf("Node not found.\n");
-
-    insertAfterNode(tmp, createNewNode(51));
+    if ((tmp = findNode(head, 25)) != NULL)
+    {
+        printf("Found node: %d\n", tmp->value);
+        insertAfterNode(tmp, createNewNode(51));
+    }
+    else
+        printf("Node not found.\n");
 
     printList(head);
+    freeList(head);
 
     return 0;
 }

@@ -3,8 +3,9 @@
 #include <pthread.h>
 #include <time.h>
 
-void *roll_dice()
+void *roll_dice(void *arg)
 {
+    (void)arg;
     int value = (rand() % 6) + 1;
     int *result = malloc(sizeof(int));
     *result = value;

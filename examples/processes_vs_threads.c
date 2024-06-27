@@ -29,15 +29,17 @@
 
 int x = 2;
 
-void *routine()
+void *routine(void *arg)
 {
+    (void)arg;
     x++;
     sleep(2);
     printf("Value of x: %d\n", x);
 }
 
-void *rotine2()
+void *routine2(void *arg)
 {
+    (void)arg;
     sleep(2);
     printf("Value of x: %d\n", x);
 }
@@ -48,7 +50,7 @@ int main(int ac, char **av)
 
     if (pthread_create(&t1, NULL, &routine, NULL) != 0)
         return 1;
-    if (pthread_create(&t2, NULL, &rotine2, NULL) != 0)
+    if (pthread_create(&t2, NULL, &routine2, NULL) != 0)
         return 2;
     if (pthread_join(t1, NULL) != 0)
         return 3;

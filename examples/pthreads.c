@@ -3,8 +3,9 @@
 #include <pthread.h>
 #include <unistd.h>
 
-void *routine()
+void *routine(void *arg)
 {
+    (void)arg;
     printf("Testing threads!\n");
     sleep(3);
     printf("Ending thread...\n");
