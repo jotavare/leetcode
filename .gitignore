@@ -1,11 +1,20 @@
+# Everything is ignored by default; the entries below opt files back in, so a
+# stray binary or editor file can never be committed by accident.
 *
 
+# Directories that hold the actual work.
 !examples/
 !leetcode/
 
+# The files worth keeping.
 !.gitignore
+!.gitattributes
+!README.md
+!LICENSE
 !*.c
 !*.cpp
 !*.sh
-!LICENSE
 
+# ...except compiled output, whatever the directory.
+*.o
+*.out
