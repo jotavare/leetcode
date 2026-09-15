@@ -80,7 +80,7 @@ bash "leetcode/192. Word Frequency.sh"
 
 ## CONTRIBUTING
 
-This repository holds finished exercises and is not open to changes.
+This repository is finished and not open to changes.
 
 ## LICENSE
 
